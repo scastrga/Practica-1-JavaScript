@@ -16,3 +16,29 @@
 // Utilizad constantes siempre que sea posible.
 // Suerte!
 
+var arrayObj;
+
+function createUsers() {
+  return (arrayObj = [
+    { name: "usuario1", country: "spain", money: 199, premiumAccount: true },
+    { name: "usuario2", country: "france", money: 0, premiumAccount: false },
+    { name: "usuario3", country: "spain", money: 537, premiumAccount: false },
+    { name: "usuario4", country: "italy", money: 1004, premiumAccount: true },
+    { name: "usuario5", country: "spain", money: 250, premiumAccount: false },
+    { name: "usuario6", country: "ireland", money: 799, premiumAccount: true },
+    { name: "usuario7", country: "spain", money: 3345, premiumAccount: false }
+  ]);
+}
+
+function filterUsers(usuario) {
+  if (usuario.country == "spain" && usuario.money > 200) {
+    return usuario;
+  }
+}
+
+window.addEventListener("load", onLoad);
+function onLoad() {
+  console.log(createUsers());
+  const order = createUsers().filter(p => filterUsers(p));
+  console.log(order);
+}
